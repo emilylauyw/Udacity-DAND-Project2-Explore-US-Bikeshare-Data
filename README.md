@@ -8,8 +8,7 @@ Udacity Data Analyst Nanodegree Project 02 - Explore US Bikeshare Data using Pyt
 1.
 
 ### Folders & Files
-1. Data
-1.1 chicago.csv
-1.2 new_york_city.csv
-1.3 washington.csv
-2.
+1. 'Data' Folder: chicago.csv
+2. 'Data' Folder: new_york_city.csv
+3. 'Data' Folder: washington.csv
+4.
