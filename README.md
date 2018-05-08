@@ -7,8 +7,9 @@ Udacity Data Analyst Nanodegree Project 02 - Explore US Bikeshare Data using Pyt
 ### Steps
 1.
 
-### Folders & Files
-1. 'Data' Folder: chicago.csv
-2. 'Data' Folder: new_york_city.csv
-3. 'Data' Folder: washington.csv
-4.
+### Files
+1. "chicago.csv" contains bike share systems data for United States - Chicago.
+2. "new_york_city.csv" contains bike share systems data for United States - New York.
+3. "washington.csv" contains bike share systems data for United States - Washington.
+4. "understand_Dataset.py" is use pandas to better understand the bike share dataset.
+5.
