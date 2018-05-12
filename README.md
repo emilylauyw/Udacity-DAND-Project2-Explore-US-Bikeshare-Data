@@ -1,4 +1,4 @@
-# Udacity-DAND-Project2-Explore-US-Bikeshare-Data
+# Udacity_DAND_Project2-Explore_US_Bikeshare_Data
 Udacity Data Analyst Nanodegree Project 02 - Explore US Bikeshare Data using Python
 
 ## Description
