@@ -250,6 +250,59 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+def getFirstFive(df):
+
+    '''
+    Displays five lines of data if the user specifies that they would like to.
+    After displaying five lines, ask the user if they would like to see five more,
+    continuing asking until they say stop.
+    '''
+
+    # check with user if they would like to display five lines of data
+    while True:
+        try:
+            first_five = input('\nWould you like to view individual trip data? Enter \'yes\' or \'no\'.\n')
+        except Exception as e:
+            print(e + " Please try again.")
+            # return to the start of the the loop
+            continue
+        # ensure that the month input is valid
+        if first_five.lower() not in ('yes', 'no'):
+            print(first_five + " is not a valid input. Please try again")
+            continue
+        else:
+            # user input was successfully parsed and ready to exit the loop
+            break
+
+    x=0
+    y=5
+    # display first five lines of data when user enter yes
+    while(first_five.lower() == 'yes'):
+        print("----------------------------------------")
+        print(df[x:y])
+        x += 5
+        y += 5
+        # display 'End of data' when reach end of dataset
+        if y >= len(df.index):
+            print("---------------End of data-------------------")
+            break
+
+        print("----------------------------------------")
+        # check with user if interested to view five more individual trip data
+        while True:
+            try:
+                first_five = input('\nWould you like to view five more individual trip data? Enter \'yes\' or \'no\'.\n')
+            except Exception as e:
+                print(e + " Please try again.")
+                # return to the start of the the loop
+                continue
+            # ensure that the month input is valid
+            if first_five.lower() not in ('yes', 'no'):
+                print(first_five + " is not a valid input. Please try again")
+                continue
+            else:
+                # user input was successfully parsed and ready to exit the loop
+                break
 
 def main():
     while True:
@@ -260,8 +313,9 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+        getFirstFive(df)
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input('\nWould you like to restart? Enter \'yes\' or \'no\'.\n')
         if restart.lower() != 'yes':
             break
 
