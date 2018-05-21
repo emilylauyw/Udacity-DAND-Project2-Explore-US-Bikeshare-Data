@@ -33,7 +33,7 @@ def get_filters():
             print(city + " is not a valid city. Please try again")
             continue
         else:
-            #city was successfully parsed and ready to exit the loop
+            # city was successfully parsed and ready to exit the loop
              break
     city = city.lower()
 
@@ -60,14 +60,14 @@ def get_filters():
             day = input("Which day? Please choose either Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or all?\n")
         except Exception as e:
             print(e + " Please try again.")
-            # Return to the start of the the loop
+            # return to the start of the the loop
             continue
         # ensure that the day input is valid
         if day.lower() not in ('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'all'):
             print(day + " is not a valid input. Please try again")
             continue
         else:
-            # day was successfully parsed and ready to exit the loop
+            #day was successfully parsed and ready to exit the loop
             break
     day = day
 
@@ -135,7 +135,7 @@ def time_stats(df):
     time.sleep(1)
 
     # display the most common start hour
-    common_hour = df['hour'].mode()[0]
+    common_hour = df['hour'].value_counts().idxmax()
     print("\nWhat is the most popular hour of the day to start your travels?")
     print(common_hour)
     # wait for 1 seconds
@@ -151,14 +151,14 @@ def station_stats(df):
     start_time = time.time()
 
     # display most commonly used start station
-    common_start_station = df['Start Station'].mode()[0]
+    common_start_station = df['Start Station'].value_counts().idxmax()
     print("Which station is the most popular to start your travel?")
     print(common_start_station)
     # wait for 1 seconds
     time.sleep(1)
 
     # display most commonly used end station
-    common_end_station = df['End Station'].mode()[0]
+    common_end_station = df['End Station'].value_counts().idxmax()
     print("\nWhich  station is the most popular to end your travel?")
     print(common_end_station)
     # wait for 1 seconds
@@ -192,7 +192,7 @@ def trip_duration_stats(df):
     total_travel_time = int(df['Trip Duration'].sum())
     # display seconds in days, hours, minutes and seconds
     total_days, total_hrs, total_mins, total_seconds = convert_seconds(total_travel_time)
-    print("What was the total traveling done for 2017 through {}?".format(calendar.month_name[df['month'].mode()[0]]))
+    print("What was the total traveling done for 2017 through {}?".format(calendar.month_name[df['month'].value_counts().idxmax()]))
     print(total_days, 'days', total_hrs, 'hours', total_mins, 'minutes', total_seconds, 'seconds')
     # wait for 1 seconds
     time.sleep(1)
@@ -238,7 +238,7 @@ def user_stats(df):
     try:
         earliest_birth = int(df['Birth Year'].min())
         recent_birth = int(df['Birth Year'].max())
-        common_birth = int(df['Birth Year'].mode()[0])
+        common_birth = int(df['Birth Year'].value_counts().idxmax())
         print('Oldest year:', earliest_birth)
         print('Youngest year:', recent_birth)
         print('Popular year:', common_birth)
