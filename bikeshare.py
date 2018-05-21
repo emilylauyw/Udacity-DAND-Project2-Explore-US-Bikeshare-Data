@@ -60,14 +60,14 @@ def get_filters():
             day = input("Which day? Please choose either Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or all?\n")
         except Exception as e:
             print(e + " Please try again.")
-            #Return to the start of the the loop
+            # Return to the start of the the loop
             continue
         # ensure that the day input is valid
         if day.lower() not in ('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'all'):
             print(day + " is not a valid input. Please try again")
             continue
         else:
-            #day was successfully parsed and ready to exit the loop
+            # day was successfully parsed and ready to exit the loop
             break
     day = day
 
@@ -120,14 +120,15 @@ def time_stats(df):
     start_time = time.time()
 
     # display the most common month
-    common_month = calendar.month_name[df['month'].mode()[0]]
-    print("What is the most popular day for traveling?")
+    common_month = calendar.month_name[df['month'].value_counts().idxmax()]
+
+    print("What is the most popular month for traveling?")
     print(common_month)
     # wait for 1 seconds
     time.sleep(1)
 
     # display the most common day of week
-    common_day = df['day_of_week'].mode()[0]
+    common_day = df['day_of_week'].value_counts().idxmax()
     print("\nWhat is the most popular day for traveling?")
     print(common_day)
     # wait for 1 seconds
@@ -275,15 +276,13 @@ def getFirstFive(df):
             break
 
     x=0
-    y=5
     # display first five lines of data when user enter yes
     while(first_five.lower() == 'yes'):
         print("----------------------------------------")
-        print(df[x:y])
+        print(df[x:x+5])
         x += 5
-        y += 5
         # display 'End of data' when reach end of dataset
-        if y >= len(df.index):
+        if x >= len(df.index):
             print("---------------End of data-------------------")
             break
 
