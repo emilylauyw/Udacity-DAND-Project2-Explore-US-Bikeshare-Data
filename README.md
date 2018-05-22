@@ -38,11 +38,10 @@ Learn about bike share use in Chicago, New York City, and Washington by computin
 - counts of each gender (only available for NYC and Chicago)
 - earliest, most recent, most common year of birth (only available for NYC and Chicago)
 
-
 ### Files
 1. ```chicago.csv``` contains bike share systems data for United States - Chicago.
 2. ```new_york_city.csv``` contains bike share systems data for United States - New York.
 3. ```washington.csv``` contains bike share systems data for United States - Washington.
-4. ```understand_Dataset.py``` uses pandas to better understand the bike share dataset.
+4. ```understand_Dataset.ipynb``` uses pandas to better understand the bike share dataset.
 5. ```bikeshare.py``` contains Python code to import US bike share data and answer interesting questions about it by computing descriptive statistics.
 6. ```bikeshare.ipynb``` is the Jupyter Notebook version of bikeshare.py.  
